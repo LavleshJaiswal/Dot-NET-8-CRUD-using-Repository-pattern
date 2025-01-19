@@ -1,23 +1,10 @@
-using System.Diagnostics;
+
 namespace CRUD_MVC.Controllers;
-public class HomeController : Controller
+public class HomeController(IWebHostEnvironment _webHostEnvironment) : Controller
 {
-    private readonly IWebHostEnvironment _webHostEnvironment;
+    public IActionResult Index() => View();
 
-    public HomeController(IWebHostEnvironment webHostEnvironment)
-    {
-        _webHostEnvironment = webHostEnvironment;
-    }
-
-    public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+    public IActionResult Privacy() => View();
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error(string errorMessage, string ReturnURL)
@@ -30,8 +17,6 @@ public class HomeController : Controller
             ReturnURL = ReturnURL
 
         };
-
-
         return View(errorData);
     }
 }

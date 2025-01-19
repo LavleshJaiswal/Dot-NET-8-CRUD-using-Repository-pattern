@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZWyN9jsXX+M=",
+  "dgSpecHash": "9cUkFLQQ9qs=",
   "success": true,
-  "projectFilePath": "E:\\tempcrud\\CRUD_MVC\\CRUD_MVC.csproj",
+  "projectFilePath": "E:\\Dot NET 8 MVC CRUD using Repository pattern and Entityframework\\CRUD_MVC\\CRUD_MVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

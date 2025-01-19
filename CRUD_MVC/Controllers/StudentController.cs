@@ -1,22 +1,12 @@
 ﻿namespace CRUD_MVC.Controllers;
-public class StudentController : Controller
+public class StudentController(IStudentRepository _studentRepository) : Controller
 {
-    private readonly IStudentRepository _studentRepository;
-
-    public StudentController(IStudentRepository studentRepository)
-    {
-        _studentRepository = studentRepository;
-    }
-
     public async Task<IActionResult> Index() => View(await _studentRepository.GetAllAsync());
     public IActionResult Create() => View();
-
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(Student student)
     {
-        int aa = 10;
-        aa = aa / 0;
         if (ModelState.IsValid)
         {
             await _studentRepository.AddAsync(student);

@@ -1,5 +1,4 @@
-﻿
-namespace CRUD_MVC.Models;
+﻿namespace CRUD_MVC.Models;
 
 [Table("StudentsRecords")]
 public class Student

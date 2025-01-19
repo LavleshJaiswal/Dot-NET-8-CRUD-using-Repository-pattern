@@ -1,7 +1,4 @@
-﻿using CRUD_MVC.Models;
-using Microsoft.EntityFrameworkCore;
-
-
+﻿using Microsoft.EntityFrameworkCore;
 namespace CRUD_MVC.Helper;
 
 public class SchoolDbContext : DbContext

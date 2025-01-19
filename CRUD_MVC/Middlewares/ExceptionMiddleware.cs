@@ -1,14 +1,6 @@
 ﻿namespace CRUD_MVC.Middlewares;
-public class ExceptionMiddleware
+public class ExceptionMiddleware(RequestDelegate _next, IWebHostEnvironment _webHostEnvironment)
 {
-    private readonly RequestDelegate _next;
-    private readonly IWebHostEnvironment _webHostEnvironment;
-    public ExceptionMiddleware(RequestDelegate next, IWebHostEnvironment webHostEnvironment)
-    {
-        _next = next;
-        _webHostEnvironment = webHostEnvironment;
-    }
-
     public async Task InvokeAsync(HttpContext context)
     {
         try
