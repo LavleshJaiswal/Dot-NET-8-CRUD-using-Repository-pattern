@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-
-namespace CRUD_MVC.Controllers;
+﻿namespace CRUD_MVC.Controllers;
 public class StudentController : Controller
 {
     private readonly IStudentRepository _studentRepository;
@@ -10,18 +8,15 @@ public class StudentController : Controller
         _studentRepository = studentRepository;
     }
 
-    public async Task<IActionResult> Index()
-    {
-        var students = await _studentRepository.GetAllAsync();
-        return View(students);
-    }
-
+    public async Task<IActionResult> Index() => View(await _studentRepository.GetAllAsync());
     public IActionResult Create() => View();
 
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(Student student)
     {
+        int aa = 10;
+        aa = aa / 0;
         if (ModelState.IsValid)
         {
             await _studentRepository.AddAsync(student);

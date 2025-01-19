@@ -1,43 +1,37 @@
 using System.Diagnostics;
-using Microsoft.AspNetCore.Hosting;
-
-namespace CRUD_MVC.Controllers
+namespace CRUD_MVC.Controllers;
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    private readonly IWebHostEnvironment _webHostEnvironment;
+
+    public HomeController(IWebHostEnvironment webHostEnvironment)
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IWebHostEnvironment _webHostEnvironment;
+        _webHostEnvironment = webHostEnvironment;
+    }
 
-        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment webHostEnvironment)
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error(string errorMessage, string ReturnURL)
+    {
+        var errorData = new ErrorViewModel
         {
-            _logger = logger;
-            _webHostEnvironment = webHostEnvironment;
-        }
+            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+            EnvironmentName = _webHostEnvironment.EnvironmentName,
+            ErrorMessage = errorMessage,
+            ReturnURL = ReturnURL
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error(string errorMessage,string ReturnURL)
-        {
-            var errorData = new ErrorViewModel
-            {
-                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
-                EnvironmentName = _webHostEnvironment.EnvironmentName,
-                ErrorMessage = errorMessage,
-                ReturnURL= ReturnURL
-
-            };
+        };
 
 
-            return View(errorData);
-        }
+        return View(errorData);
     }
 }
